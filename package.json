@@ -1,0 +1,20 @@
+{
+  "name": "26012025-ovning",
+  "version": "1.0.0",
+  "description": "En miniräknare med CI/CD",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": ["calculator", "ci", "jest"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "jest": "^29.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
