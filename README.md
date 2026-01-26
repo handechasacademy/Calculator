@@ -1,6 +1,9 @@
 # Vanilla JS Calculator
 
 ![CI](https://github.com/handechasacademy/Calculator/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://codecov.io/gh/handechasacademy/Calculator/branch/dev/graph/badge.svg)
+
+
 
 A vanilla JavaScript calculator project with CI/CD via GitHub Actions.
 
@@ -14,7 +17,6 @@ A vanilla JavaScript calculator project with CI/CD via GitHub Actions.
 ## Getting Started
 
 ### Prerequisites
-- Node.js v20+
 - npm
 
 ### Install Dependencies
