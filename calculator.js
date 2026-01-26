@@ -1,20 +1,22 @@
 // calculator.js - Enkla räkneoperationer
 
 function add(a, b) {
-    // lägg till logik
+    return a + b;
 }
 
 function subtract(a, b) {
-    // lägg till logik
+    return a - b;
 }
 
 function multiply(a, b) {
-    // lägg till logik
+    return a * b;
 }
 
 function divide(a, b) {
-    // lägg till logik
-    // kom ihåg felhantering för division med 0
+    if (b === 0) {
+    throw new Error('Division by zero is not allowed');
+  }
+  return a / b;
 }
 
 // Exportera för Jest
