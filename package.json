@@ -5,6 +5,7 @@
   "main": "calculator.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint ."
   },
   "keywords": [
