@@ -40,11 +40,6 @@ jobs:
           fail_ci_if_error: false
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      # ... (tidigare steg)
-
-      - name: Run tests with coverage
-        run: npm test -- --coverage
       
       - name: Upload coverage report
         uses: actions/upload-artifact@v3
