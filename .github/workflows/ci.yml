@@ -4,58 +4,51 @@ on:
   push:
     branches: [ main, dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      
+          cache: npm
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Run linter
-        run: npm run lint || echo "No linter configured"
-      
-      - name: Run tests
+        run: npm run lint
+
+      - name: Run tests with coverage
         run: npm test -- --coverage
-               
-      # Ladda upp coverage till Codecov
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
           fail_ci_if_error: false
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v3
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage/
-      
+
       - name: Comment coverage on PR
         if: github.event_name == 'pull_request'
         uses: romeovs/lcov-reporter-action@v0.3.1
         with:
-          github-token: $ secrets.GITHUB_TOKEN 
-          lcov-file: ./coverage/
-          
-      # Bygg projektet - OBS Build-steget är bara nödvändigt för projekt som använder
-      # bundlers som Vite, Webpack eller frameworks som React/Vue 
-      # behövs ej för vanilla JavaScript men ska konfigureras här när det används
-      #- name: Build project
-      #  run: npm run build
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
