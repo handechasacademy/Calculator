@@ -1,6 +1,9 @@
-// script.js - UI-logik
+/* eslint-disable no-unused-vars */
 
-function calculate(operation) {
+
+
+
+function myCalculate(operation) {
     const num1 = parseFloat(document.getElementById('num1').value);
     const num2 = parseFloat(document.getElementById('num2').value);
     const resultElement = document.getElementById('result');

@@ -4,53 +4,55 @@ describe('Calculator functions', () => {
     
     describe('add', () => {
         test('should add two positive numbers', () => {
-            // lägg till logik
+            expect(add(1, 2)).toBe(3);
         });
         
         test('should add negative numbers', () => {
-            // lägg till logik
+            expect(add(-4, -3)).toBe(-7);
         });
         
         test('should handle decimals', () => {
-            // lägg till logik
+            expect(add(3.7, 4.5)).toBeCloseTo(8.2, 1);
         });
     });
     
     describe('subtract', () => {
         test('should subtract two numbers', () => {
-            // lägg till logik
+            expect(subtract(4, 3)).toBe(1);
         });
         
         test('should handle negative results', () => {
-            // lägg till logik
+            expect(subtract(3, 4)).toBe(-1);
         });
     });
     
     describe('multiply', () => {
         test('should multiply two numbers', () => {
-            // lägg till logik
+            expect(multiply(4, 3)).toBe(12);
         });
         
         test('should multiply by zero', () => {
-            // lägg till logik
+            expect(multiply(4, 0)).toBe(0);
         });
         
         test('should multiply negative numbers', () => {
-            // lägg till logik
+            expect(multiply(-4, -3)).toBe(12);
+            expect(multiply(-4, 3)).toBe(-12);
         });
     });
     
     describe('divide', () => {
         test('should divide two numbers', () => {
-            // lägg till logik
+            expect(divide(4, 2)).toBe(2);
         });
         
         test('should handle decimals', () => {
-            // lägg till logik
+            expect(divide(10, 3)).toBeCloseTo(3.33, 2);
         });
         
         test('should throw error when dividing by zero', () => {
-            // lägg till logik
+            expect(() => divide(10, 0)).toThrow();
+            expect(() => divide(5, 0)).toThrow('Division by zero is not allowed');
         });
     });
 });
